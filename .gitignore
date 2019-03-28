@@ -31,3 +31,9 @@ gen### Java template
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
+target/classes/application-consumer.xml
+target/classes/application-provider.xml
+target/classes/config/
+target/classes/logback-spring.xml
+target/generated-sources/
+target/generated-test-sources/
