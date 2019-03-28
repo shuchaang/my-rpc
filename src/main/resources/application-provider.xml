@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd" default-lazy-init="false">
+
+
+
+    <context:component-scan base-package="com.sc.rabbit"/>
+
+    <context:property-placeholder  location="config/conf.properties"/>
+
+
+
+    <bean id="register" class="com.sc.rabbit.registry.ServiceRegistry">
+        <constructor-arg name="address" value="${registry.address}"/>
+    </bean>
+
+
+    <bean id="rpcServer" class="com.sc.rabbit.server.RabbitServer">
+        <constructor-arg name="address" value="${server.address}"/>
+        <constructor-arg name="serviceRegistry" ref="register"/>
+    </bean>
+</beans>
